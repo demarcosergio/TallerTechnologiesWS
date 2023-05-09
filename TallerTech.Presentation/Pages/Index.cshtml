@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+}<h1>Cars</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Make</th>
+			<th>Model</th>
+			<th>Year</th>
+			<th>Doors</th>
+			<th>Color</th>
+			<th>Price</th>
+			<th>Guess Price</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var car in Model.AllCars)
+		{
+				<tr>
+					<td>@car.Make</td>
+					<td>@car.Model</td>
+					<td>@car.Year</td>
+					<td>@car.Doors</td>
+					<td>@car.Color</td>
+					<td>@car.Price</td>
+					<td>
+						<form method="post">
+							<div class="row">
+								<div class="col">
+									<input type="hidden" name="id" value="@car.Id" />
+									<div class="form-group">
+										<input type="number" name="guess" class="form-control" value="@car.Guess" />
+									</div>
+								</div>
+								<div class="col">
+									<button type="submit" class="btn btn-primary btn-block">Guess</button>
+								</div>
+							</div>
+						</form>
+					</td>
+					<td>
+					@if (car.Guessed != null && car.Guessed == true)
+					{
+						if (car.Guess > 5000)
+						{
+							<span class="text-success">Great job!</span>
+						}
+						else
+						{
+							<span class="text-danger">Sorry, guess is too far.</span>
+						}
+					}
+					</td>
+				</tr>
+		}
+	</tbody>
+</table>

@@ -1,0 +1,34 @@
+﻿@page "/order"
+@model TallerTech.Presentation.Orders.OrderDetailModel
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h1>Orders for Product ID 1112222333</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Order ID</th>
+            <th>Date Created</th>
+            <th>Purchase Method</th>
+            <th>Product Number</th>
+            <th>Product Origin</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+                <tr>
+                    <td>@order.FullName</td>
+                    <td>@order.Age</td>
+                    <td>@order.OrderID</td>
+                    <td>@order.DateCreated.ToShortDateString()</td>
+                    <td>@order.PurchaseMethod</td>
+                    <td>@order.ProductNumber</td>
+                    <td>@order.ProductOrigin</td>
+                </tr>
+        }
+    </tbody>
+</table>

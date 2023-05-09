@@ -1,0 +1,32 @@
+﻿@page "/car/home"
+@using TallerTech.Presentation.Data.Entities
+@model TallerTech.Presentation.Cars.IndexModel
+@{
+    ViewData["Title"] = "CRUD page";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <a asp-page="./create" class="btn btn-primary">Create New Car</a>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model.AllCars)
+        {
+                    <div class="col-md-3 m-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@item.Make @item.Model @item.Year</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@item.Price $</h6>
+                <p class="card-text">@item.Make</p>
+                <p class="card-text">@item.Color</p>
+                <div class="d-flex justify-content-between">
+                    <a asp-page="./edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-page="./delete" asp-route-id="@item.Id" class="btn btn-danger align-self-end">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        }
+    </div>
+</div>

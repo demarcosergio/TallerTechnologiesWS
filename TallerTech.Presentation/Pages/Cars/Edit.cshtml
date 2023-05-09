@@ -1,0 +1,43 @@
+﻿@page "/Car/edit"
+@model TallerTech.Presentation.Cars.EditModel
+<div class="container">
+    <div class="row ">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST">
+                <legend>Update A New Car</legend>
+
+                <div class="mb-3">
+                    <label for="txtMake" class="form-label">Make</label>
+                    <input asp-for="CarVm.Make" type="text" class="form-control" id="txtMake" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtModel" class="form-label">Model</label>
+                    <input asp-for="CarVm.Model" type="text" class="form-control" id="txtModel" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtYear" class="form-label">Year</label>
+                    <input asp-for="CarVm.Year" type="number" class="form-control" id="txtYear" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtDoors" class="form-label">Doors</label>
+                    <input asp-for="CarVm.Doors" type="number" class="form-control" id="txtDoors" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtColor" class="form-label">Color</label>
+                    <input asp-for="CarVm.Color" type="text" class="form-control" id="txtColor" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtCost" class="form-label">Cost</label>
+                    <input asp-for="CarVm.Price" type="text" class="form-control" id="txtCost" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
